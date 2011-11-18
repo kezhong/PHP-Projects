@@ -1,1 +1,85 @@
 Creating a simple CRUD-based Content Management System. The CMS we create will feature a dynamic menu for our database-backed pages. Page editing will be accomplished using a WYSIWYG text-area.
+
+
+CMS page will consist of the following elements:
+
+title - varchar(100)
+content - text
+updated_at - timestamp (Can be auto updated. In Navicat: "On Update Current_Timestamp" checked)
+created_at - timestamp 
+permalink - varchar(20)
+id - int(11) auto-incrementing primary key
+
+
+Authentication
+
+Authentication will be handeled using simple HTTP authentication.
+
+ 
+Non-Authenticated User Stories
+ 
+As a non-authenticated user I should be able to:
+View a home page that displays some introductory content along with a navigation menu.
+Use the navigation menu to surf to any of the available CMS pages.
+Authenticated User Stories
+
+As an authenticated user I should be able to:
+Create a new CMS page using a WYSIWYG form.
+Edit any of the existing CMS pages using a WYSIWYG form.
+Delete any of the existing CMS pages.
+Navigate to an admin page that list existing CMS pages (with associated edit links and delete button).
+Permalinks
+
+Every page has an associated permalink associated with it. This permalink gives each CMS page a "friendly url".
+ 
+For example, if your root url is http://localhost/cms/ and you have a page with a permalink of "about". Then this page should be accessible via the url http://localhost/cms/?p=about
+ 
+In other words we are accessing the index.php script here and passing it a GET parameter of p set to the value of about.
+ 
+Another way to access this same page would be: http://localhost/cms/index.php?p=about
+ 
+When fetching the appropriate page from the database you would need to include the permalink as part of a SQL WHERE clause. (This is similar to how we fetched blog posts by id in the blogging assigment.)
+Dynamic Menu
+
+At the top of all your page you should have a menu that links to all of your CMS pages. This menu should be built dynamically by selecting from your CMS table and finding all the available CMS pages. The menu should link to the permalink of each CMS page, using the pages title as the link text.
+ 
+For example, if you had three CMS pages in your system with the following menu text and permalinks:
+Title: Our Products Permalink: products
+Title: About Us Permalink: about
+Title: Contact Us Permalink: contact
+Then your menu should include the following three links:
+
+<a href="/cms/?p=products>Our Products</a>
+<a href="/cms/?p=about>About Us</a>
+<a href="/cms/?p=contact>Contact Us</a>
+Created At / Updated At
+
+Each of your cms pages will have an associated created_at and updated_at column in your database table. They should function as follows:
+
+The updated_at column should hold the timestamp of the last page update.
+The created_at column should hold the timestamp of the initial page creation.
+MySQL can manage the updated_at column automatically. To enable this feature, you check the "On Update Current_Timestamp" checkbox for the updated_at column when creating your cms table in Navicat.
+
+Home Page
+ 
+Your home page (i.e. your index.php with no GET parameters) can display static text; however, you may wish to populate it with the contents of the CMS page with a permalink of 'home' (if it exists).
+ 
+You may wish to include a link to the home page as part of your dynamic menu.
+WYSIWYG
+
+You need not worry about WYSIWYG editing when you first start the assignment. You can first code a working CMS that uses plain XHTML forms for data entry. Once this is working you should research the TinyMCE javascript plugin and enhance both you new and edit forms so that they support WYSIWYG editing.
+ 
+You will find a folder of example html in the TinyMCE library zip file.
+ 
+To see TinyMCE in action, visit this link: http://demo.babylolly.com/journal/add/37
+ 
+The text-data POSTed from a TinyMCE-textarea will contain html tags for any formatting applied to the text.
+ 
+Advanced Achievements 
+ 
+This portion of the assigment should only be attempted once all other components have been implemented.
+1) Currently the order of the links in our dynamic menu isn't very configurable. 
+ 
+Implement an admin page that allows users to set the order of the links displayed in the menu. (Hint: You'd start by adding a new order column to your CMS table.)
+ 
+2) Implement an admin page that allows users to select which CMS page should be used to populate the home page. (Hint: You'd probably want to use a radio selection to ensure that only one page could be selected.)
