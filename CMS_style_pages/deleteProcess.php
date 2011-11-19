@@ -4,7 +4,8 @@
     $id = $_POST['id'];
     
     if (!is_numeric($id)) {
-        header('Location: index.php');
+        //header('Location: index.php');
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
     }
     
     $query = "DELETE FROM cmsinfo WHERE id = $id";

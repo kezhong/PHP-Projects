@@ -20,7 +20,7 @@
  
 
         
-        <? else: header('Location:index.php');?>
+        <? else: echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=admin.php'>";?>
         <? endif; ?>
     
 

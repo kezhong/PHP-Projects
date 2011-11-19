@@ -16,7 +16,8 @@
     
         if($row){
             echo "{$title} has been successfully added into database";
-            header('Refresh:2;url=admin.php');
+            echo "<META HTTP-EQUIV='refresh' CONTENT='2;URL=admin.php'>";
+            //header('Refresh:2;url=admin.php');
         }
         else{
             echo"{$title} has not added into database";
@@ -24,8 +25,7 @@
         
     }
     else{
-        echo "<p>You have to enter a title and permalink!</p>";
-        header('Refresh:2; url=add.php');
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=addPage.php'>";
         }
         
     require('footer.php');
