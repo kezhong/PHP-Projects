@@ -1,10 +1,17 @@
-<?php
-    require('dbConfig.php');
-    require('header.php');
-    $id=trim($_GET['id']);
+<?php  
+    
+    if(empty($_GET['id'])){
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
+    }
+    else{
+       $id=trim($_GET['id']);
+       require('dbConfig.php');
+        require('header.php');
+    }
+    
     if(!is_numeric($id))
     {
-       echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=admin.php'>";  
+       echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";  
     }
         $query="SELECT title,content,permalink FROM cmsinfo WHERE id = ?";
         
@@ -14,7 +21,7 @@
         $STH->setFetchMode(PDO::FETCH_ASSOC);
         $row = $STH->fetch();
         if(!$row){
-            echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=admin.php'>"; 
+            echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>"; 
         }
     
 ?>
@@ -23,7 +30,7 @@
                     <input type="text" name="title" id="title" value="<?=$row['title']?>" required/><br />
                     
                     <label for="content">Content:</label><br />
-                    <textarea cols="" rows="" name="content" id="content"><?=$row['content']?></textarea><br />
+                    <textarea name="content" id="content"><?=$row['content']?></textarea><br />
                     
                     <label for="permalink">Permalink: </label>
                     <input type="text" name="permalink" id="permalink" value="<?=$row['permalink']?>" required/><br/>

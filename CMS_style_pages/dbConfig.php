@@ -1,4 +1,5 @@
 <?php
+
 define('DB_HOST','localhost');
 define('DB_USER','mycms');
 define('DB_PW','mycms');

@@ -1,4 +1,5 @@
 <?php
+    
     require('header.php');
     require_once('dbConfig.php');
     
@@ -20,7 +21,7 @@
             //header('Refresh:2;url=admin.php');
         }
         else{
-            echo"{$title} has not added into database";
+            echo"Error: {$title} has not added into database";
         }
         
     }

@@ -1,14 +1,13 @@
-<?
-    require_once("dbConfig.php");
+<?php
+    require("authenticate.php");
+    require("header.php");
+    echo "<a href='addPage.php'>Add New Page</a>";
+            #setting the fetch mode
     $query="SELECT * FROM cmsinfo ORDER BY created_at DESC";
     #values in the select statment
     $STH=$DBH->query($query);
-?>
-<?php
-    require("header.php");
-    #setting the fetch mode
     $STH->setFetchMode(PDO::FETCH_ASSOC);
-    
+
     while($row = $STH->fetch()): ?>
        <p> <span class="title"><?=$row['title']?></span><br/><?=$row['created_at']?>--<a href="edit.php?id=<?=$row['id']?>">Edit</a></p>
         <form  method="post" action="delete.php">

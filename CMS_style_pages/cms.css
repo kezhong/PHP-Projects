@@ -18,7 +18,7 @@ div#name{
     height: 50px;
     left: 109px;    
     top: 55px;
-    width: 125px;
+    width: 138px;
     font-weight:bold;
     
 }
@@ -32,10 +32,10 @@ div#main {
     width: 924px;
 }
 
-div#search{
-    position:relative;
-   left: 520px;
-    top: 45px;
+div#topMenu{
+   left: 664px;
+    position: relative;
+    top: -64px;
     width: 300px;
     
 }
@@ -101,6 +101,21 @@ a:hover{
     padding-bottom:10px;
 }
 #infoForm{
-    padding-left:100px;
-    padding-top:20px;
+    padding-top:2px;
+}
+#content{
+    margin:0px auto;
+    width:90%;
+    padding-bottom:10px;
+}
+footer{
+     color:gray; 
+     font-size:10px;
+     padding-left:450px;
+}
+#content p{
+    font-size:11px;
+    font-style:italic;
+    
+    
 }

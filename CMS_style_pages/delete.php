@@ -1,6 +1,9 @@
 <?php
     require('dbConfig.php');
     require('header.php');
+    if(empty($_POST['id'])||empty($_POST['title'])||!is_numeric($_POST['id'])){
+       echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>"; 
+    }
         $id=trim($_POST['id']);
         $title=trim($_POST['title']);
         $query="SELECT * FROM cmsinfo WHERE id = $id";

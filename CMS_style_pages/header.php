@@ -26,16 +26,17 @@
             <div id="name">
                 Ke's CMS
             </div>
-            <div id="search">
-                <form action="search.php" method="post">
-                    <p><label for="searchId">Search: </label>
-                    <input type="text" name="search" id="searchId"/>
-                    <input type="submit" value="Search" /></p>
-                </form>
+            <div id="topMenu">
+                <menu>
+                    <a href="admin.php">Admin</a> <a href="addPage.php">Add Page</a>
+                </menu>
+
             </div>
             <div id="menu">
                 <nav>
-                    <a href="#">Home</a>
+                    <?php
+                    require('menu.php');
+                    ?>
                 </nav>
             </div>
         </div> <!-- end header -->

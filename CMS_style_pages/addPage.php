@@ -1,4 +1,5 @@
 <?php
+    require("authenticate.php");
     require("header.php");
 ?>
 <!-- Scripts  -->

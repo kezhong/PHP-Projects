@@ -1,6 +1,9 @@
 <?php
     require('dbConfig.php');
     require('header.php');
+        if(empty($_POST['id'])||empty($_POST['title'])||!is_numeric($_POST['id'])||empty($_POST['permalink'])){
+       echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=edit.php'>"; 
+    }
         $id=trim($_POST['id']);
         $title=trim($_POST['title']);
         $content=trim($_POST['content']);
@@ -16,8 +19,8 @@
             
             if($row){
                 echo "Article: <b>{$title}</b> has been updated!<br/>";
-                echo "It will automatically go back to home page after 3 seconds";
-                echo "<META HTTP-EQUIV='refresh' CONTENT='2;URL=admin.php'>";                
+                echo "It will automatically go back to home page after 1 seconds";
+                echo "<META HTTP-EQUIV='refresh' CONTENT='1;URL=admin.php'>";                
             }
             else{
                 echo "Articale couldn't be updated!";

@@ -1,4 +1,5 @@
 <?php
+
     require('dbConfig.php');
     
     $id = $_POST['id'];
