@@ -26,7 +26,7 @@
         
     }
     else{
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=addPage.php'>";
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
         }
         
     require('footer.php');
